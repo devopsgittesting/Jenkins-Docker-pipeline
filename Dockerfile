@@ -1,5 +1,5 @@
 FROM httpd:latest
-COPY index.html /usr/local/apache2/htdocs/
+#COPY index.html /usr/local/apache2/htdocs/
 COPY server.sh /usr/local/apache2/htdocs/
 RUN chmod +x /usr/local/apache2/htdocs/server.sh
 RUN /bin/sh /usr/local/apache2/htdocs/server.sh
