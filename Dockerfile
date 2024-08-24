@@ -1,4 +1,4 @@
-FROM centos:8
+FROM centos
 RUN yum install httpd -y
 RUN yum clean all
 ADD https://raw.githubusercontent.com/devopsgittesting/Jenkins-Docker-pipeline/main/index.html /var/www/html/
