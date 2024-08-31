@@ -11,10 +11,28 @@ pipeline {
     
          stage('Build') {
             steps {
-                echo 'Building Stage...!'
-		 sh "docker build -t httpd_server:latest ."
+                echo 'Building Docker Image..!'
+		 sh "docker build -t devopstest777/httpd_server:latest ."
             }
         }
+
+
+
+	  stage('Pushing Image to Docker Hub') {
+            steps {
+
+
+                echo 'Pusing image to docker hub'
+                 withCredentials([string(credentialsId: 'DOCKER_HUB_PWD', variable: 'DOCKER_HUB_PASS_CODE')]) {
+  
+                  sh "docker login -u devopstest777 -p $DOCKER_HUB_PASS_CODE"
+                }
+
+	
+	         sh "docker push devopstest777/httpd_server:latest"
+            }
+        }
+
     
          stage('Test') {
             steps {
