@@ -1,6 +1,10 @@
 pipeline {
     agent any
 
+  environment {
+    DOCKERHUB_CREDENTIALS = credentials('dockerHub2')
+     }
+
     stages {
         stage('SCM') {
             steps {
