@@ -23,10 +23,9 @@ pipeline {
 
 
                 echo 'Pusing image to docker hub'
-                 withCredentials([string(credentialsId: 'DOCKER_HUB_PWD', variable: 'DOCKER_HUB_PASS_CODE')]) {
+               
   
-                  sh "echo $DOCKER_HUB_PASS_CODEv| docker login -u devopstest777 -p $DOCKER_HUB_PASS_CODE --password-stdin"
-                }
+                  sh "echo $DOCKER_HUB_PASS_CODE | docker login -u devopstest777 --password-stdin"
 
 	
 	         sh "docker push devopstest777/httpd_server:latest"
