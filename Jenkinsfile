@@ -48,7 +48,7 @@ pipeline {
 
                   echo "Deploying to container"
            
-                  sh "docker run -d -p 8000:8000 devopstest777/httpd_server:latest"
+                  sh "docker run -d -p 80:80 devopstest777/httpd_server:latest"
 
              }
         }
