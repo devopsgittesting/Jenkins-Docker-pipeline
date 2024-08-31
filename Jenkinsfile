@@ -25,7 +25,7 @@ pipeline {
                 echo 'Pusing image to docker hub'
                
   
-                  sh "echo $DOCKER_HUB_PASS_CODE | docker login -u devopstest777 --password-stdin"
+                  sh "echo $DOCKER_HUB_PWD | docker login -u devopstest777 --password-stdin"
 
 	
 	         sh "docker push devopstest777/httpd_server:latest"
