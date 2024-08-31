@@ -41,8 +41,9 @@ pipeline {
                 echo 'Deploying App in Dev Environment..!'
 
                   echo "Deploying to container"
-           
-                  sh "docker run -d -p 80:80 devopstest777/httpd_server:latest"
+                  sh 'docker rm -f apachewebapp'
+
+                  sh "docker run -d -p 80:80 --name apachewebapp devopstest777/httpd_server:latest"
 
              }
         }
