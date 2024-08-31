@@ -26,25 +26,19 @@ pipeline {
             steps {
 
 
-                echo 'Pusing image to docker hub'
-               
+                 echo 'Pusing image to docker hub'
   
-                sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'
+                 sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'
 	
 	         sh 'docker push devopstest777/httpd_server:latest'
             }
         }
 
     
-         stage('Test') {
-            steps {
-                echo 'Testing Stage...!'
-            }
-        }
-    
+ 
            stage('Deploy') {
             steps {
-                echo 'Deployment Stage'
+                echo 'Deploying App in Dev Environment..!'
 
                   echo "Deploying to container"
            
