@@ -12,7 +12,7 @@ pipeline {
          stage('Build') {
             steps {
                 echo 'Building Stage...!'
-		 sh "docker build -t centos_httpd:latest ."
+		 sh "docker build -t httpd_server:latest ."
             }
         }
     
